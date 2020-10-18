@@ -20,6 +20,14 @@ public class LoginStepDefs {
     public void the_user_should_be_able_to_login() {
         System.out.println("I verify that title changed to Dashboard");
     }
+    @When("the user enters the sales manager information")
+    public void the_user_enters_the_sales_manager_information() {
+        System.out.println("I will enter sales manager information");
 
+    }
+    @When("the user enters the store manager information")
+    public void the_user_enters_the_store_manager_information() {
+        System.out.println("I will enter store manager information");
+    }
 
 }
