@@ -9,9 +9,20 @@ import org.junit.runner.RunWith;
         //feature files location path
         features = "src/test/resources/features",
         //step definitions class path
-        glue = "com/vytrack/step_definitions"
+        glue = "com/vytrack/step_definitions",
+        //it doesnt wait the other steps to get method of step_def.
+        dryRun = false,
 
+        //tags = "@driver and @VYT-123" //===> new version ==>execute same test case
+        // tags = "@driver and @VYT-123 and @wip" ==>first one
+        //tags = {"@driver", "@VYT-123"} ===> old version
 
+        //tags =  "@driver or @store_manager" ===> execute different scenario===> new version==>execute different scenarios
+        //tags = "@driver, @store_manager" ===> old version
+
+        //how we run all @login but not @wip also @sales_manager
+        tags = "@Fleet-Vehicle or @Marketing-Campaigns"
+        //or tags=  not @wip
 )
 
 
