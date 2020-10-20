@@ -24,7 +24,7 @@ public class LoginStepDefs {
     }
     @When("the user enters the sales manager information")
     public void the_user_enters_the_sales_manager_information() {
-        System.out.println("I enter sales man user name and password");
+        System.out.println("I enter sales manager user name and password");
     }
     @When("the user enters the store manager information")
     public void the_user_enters_the_store_manager_information() {

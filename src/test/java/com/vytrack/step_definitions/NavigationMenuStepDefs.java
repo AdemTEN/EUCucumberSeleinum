@@ -4,7 +4,7 @@ import io.cucumber.java.en.Then;
 
 public class NavigationMenuStepDefs {
 
-    @Then("user navigate to Fleet Vehicle module")
+    @Then("user navigate to Fleet Vehicle")
     public void user_navigate_to_Fleet_Vehicle_module() {
         System.out.println("Navigate to Flee Vehicle Module");
     }
@@ -15,7 +15,7 @@ public class NavigationMenuStepDefs {
 
     }
 
-    @Then("user navigate to Marketing Campaigns module")
+    @Then("user navigate to Marketing Campaigns")
     public void user_navigate_to_Marketing_Campaigns_module() {
         System.out.println("Navigate to Marketing Campaigns module");
 
@@ -27,7 +27,7 @@ public class NavigationMenuStepDefs {
 
     }
 
-    @Then("user navigate to Activities Caledars Events module")
+    @Then("user navigate to Activities Caledars Events")
     public void user_navigate_to_Activities_Caledars_Events_module() {
         System.out.println("Navigate to Activities Calendar Events module");
 
