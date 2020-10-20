@@ -1,5 +1,6 @@
 @sales_manager_navigation
 Feature: Sales managers should be able to navigate to pages using the top menu
+
 @Fleet-Vehicle
   Scenario: Sales manager navigate to Fleet Vehicle
     Given the user is on the login page
