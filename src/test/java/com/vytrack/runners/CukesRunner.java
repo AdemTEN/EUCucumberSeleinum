@@ -6,6 +6,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
+
+        plugin = {"json:target/cucumber.json"},
         //feature files location path
         features = "src/test/resources/features",
         //step definitions class path
@@ -17,19 +19,21 @@ import org.junit.runner.RunWith;
         // tags = "@driver and @VYT-123 and @wip" ==>first one
         //tags = {"@driver", "@VYT-123"} ===> old version
 
-        //tags =  "@driver or @store_manager" ===> execute different scenario===> new version==>execute different scenarios
+        //tags =  "@driver or @store_manager" ===> execute different scenarios===> new version
         //tags = "@driver, @store_manager" ===> old version
 
         //how we run all @login but not @wip also @sales_manager
-        tags = "@Fleet-Vehicle or @Marketing-Campaigns"
-        //or tags=  not @wip
+        //tags = @login and not @wip
+        tags = "@sales_manager_navigation"
+        // tags = "@Fleet-Vehicle or @Marketing-Campaigns"//execute two different scenario
+
+
+
 )
 
 
 //this class generetas codes for step definition
 public class CukesRunner {
-
-
 
 
 }

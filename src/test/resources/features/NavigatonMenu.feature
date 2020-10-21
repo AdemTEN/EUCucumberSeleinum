@@ -8,8 +8,8 @@ Feature: Sales managers should be able to navigate to pages using the top menu
     When user navigate to Fleet Vehicle
     Then verify that title is Vehicle
 
-@Marketing-Campaigns
-    Scenario: Sales manager navigate to Marketing Campaignss
+@Marketing-Campaigns @db
+    Scenario: Sales manager navigate to Marketing Campaigns
       Given the user is on the login page
       And the user enters the sales manager information
       When user navigate to Marketing Campaigns
