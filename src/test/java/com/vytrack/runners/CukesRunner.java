@@ -24,7 +24,7 @@ import org.junit.runner.RunWith;
 
         //how we run all @login but not @wip also @sales_manager
         //tags = @login and not @wip
-        tags = "@sales_manager_navigation"
+        tags = "@Marketing-Campaigns"
         // tags = "@Fleet-Vehicle or @Marketing-Campaigns"//execute two different scenario
 
 
