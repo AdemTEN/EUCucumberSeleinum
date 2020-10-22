@@ -1,5 +1,6 @@
 package com.vytrack.pages;
 
+import com.vytrack.step_definitions.LoginStepDefs;
 import com.vytrack.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,6 +30,22 @@ public class LoginPage {
         submit.click();
         // verification that we logged
     }
+
+   public void logingWithUserType(String usertype) throws InterruptedException {
+             LoginStepDefs loginStepDefs = new LoginStepDefs();
+        switch (usertype){
+            case "driver":
+                loginStepDefs.the_user_enters_the_driver_information();
+                break;
+            case "storemanager":
+                loginStepDefs.the_user_enters_the_store_manager_information();
+                break;
+
+            case "salesmanager" :
+                loginStepDefs.the_user_enters_the_sales_manager_information();
+                break;
+        }
+   }
 
 
 }

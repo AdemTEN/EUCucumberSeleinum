@@ -26,7 +26,7 @@ public class Hooks {
     }
 
     @After("@db")
-    public void closeDb(){
+    public void closedb(){
         System.out.println("\tdisconnecting to database...");
 
     }

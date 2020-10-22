@@ -14,6 +14,9 @@ import org.junit.runner.RunWith;
         glue = "com/vytrack/step_definitions",
         //it doesnt wait the other steps to get method of step_def.
         dryRun = false,
+        tags = "@wip"
+
+
 
         //tags = "@driver and @VYT-123" //===> new version ==>execute same test case
         // tags = "@driver and @VYT-123 and @wip" ==>first one
@@ -24,7 +27,7 @@ import org.junit.runner.RunWith;
 
         //how we run all @login but not @wip also @sales_manager
         //tags = @login and not @wip
-        tags = "@wip"
+
         // tags = "@Fleet-Vehicle or @Marketing-Campaigns"//execute two different scenario
 
 

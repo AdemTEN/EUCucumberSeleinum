@@ -19,5 +19,5 @@ Feature: Sales managers should be able to navigate to pages using the top menu
   Scenario: Sales manager navigate to Activities Caledars Events
     Given the user is on the login page
     And the user enters the sales manager information
-    When user navigate to Activities Caledars Events
+    When user navigate to Activities Calendars Events
     Then verify that title is Calendars

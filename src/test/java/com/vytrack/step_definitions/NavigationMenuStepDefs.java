@@ -34,8 +34,8 @@ public class NavigationMenuStepDefs {
 
     }
 
-    @Then("user navigate to Activities Caledars Events")
-    public void user_navigate_to_Activities_Caledars_Events_module() {
+    @Then("user navigate to Activities Calendars Events")
+    public void user_navigate_to_Activities_Calendars_Events_module() {
         System.out.println("Navigate to Activities Calendar Events module");
 
     }
