@@ -70,18 +70,11 @@ public class LoginStepDefs {
         Assert.assertTrue(Driver.get().getTitle().contains(expectedTitle));
     }
 
-    @Given("user logged in as {string}")
+    @Given("the user logged in as {string}")
     public void user_logged_in_as(String usertype) throws InterruptedException {
 
         LoginPage loginPage = new LoginPage();
         loginPage.logingWithUserType(usertype);
-
-
     }
-
-
-
-
-
 
 }
