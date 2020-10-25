@@ -16,7 +16,7 @@ Feature: Contacts page
     #    #driver,storemanager,salesmanager
     #   #you will have one step definition and it will handle differnet usertypes
 
-@wip
+
     Scenario:login as a user
       Given the user is on the login page
       And the user logged in as "driver"

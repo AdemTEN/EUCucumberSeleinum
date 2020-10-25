@@ -31,17 +31,17 @@ public class LoginPage {
         // verification that we logged
     }
 
-   public void logingWithUserType(String usertype) throws InterruptedException {
+   public void logingWithUserType(String usertype)  {
              LoginStepDefs loginStepDefs = new LoginStepDefs();
         switch (usertype){
             case "driver":
                 loginStepDefs.the_user_enters_the_driver_information();
                 break;
-            case "storemanager":
+            case "store manager":
                 loginStepDefs.the_user_enters_the_store_manager_information();
                 break;
 
-            case "salesmanager" :
+            case "sales manager" :
                 loginStepDefs.the_user_enters_the_sales_manager_information();
                 break;
         }
