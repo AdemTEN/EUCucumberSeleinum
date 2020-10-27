@@ -8,7 +8,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
 
         plugin = {"json:target/cucumber.json",
-                  "html:target/default-html-reports"},
+                  "html:target/default-html-reports",
+                //how to remember which test cases failed
+                "rerun:target/rerun.txt"},
         //feature files location path
         features = "src/test/resources/features",
         //step definitions class path
@@ -30,9 +32,6 @@ import org.junit.runner.RunWith;
         //tags = @login and not @wip
 
         // tags = "@Fleet-Vehicle or @Marketing-Campaigns"//execute two different scenario
-
-
-
 )
 
 

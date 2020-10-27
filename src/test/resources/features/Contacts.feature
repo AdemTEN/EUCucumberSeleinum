@@ -20,13 +20,13 @@ Feature: Contacts page
     Scenario:login as a user
       Given the user is on the login page
       And the user logged in as "driver"
-      Then the title contains "Dashboarda"
+      Then the title contains "xxxxxx"
 
 
 
   Scenario: Menu Options
     Given the user is on the login page
-    Then the user logged in as "salesmanager"
+    Then the user logged in as "sales manager"
     Then the user should see following options
       | Dashboards         |
       | Fleet              |
@@ -38,11 +38,16 @@ Feature: Contacts page
       | System             |
 
 
-  Scenario: login as a given user
+  Scenario Outline: login as a given user
     Given the user is on the login page
     When the user logs in using following credentials
-      | username  | user10      |
+      | username  | <user>      |
       | password  | UserUser123 |
-      | firstname | Brenden     |
-      | lastname  | Schneider   |
+      | firstname | <firstName> |
+      | lastname  | <lastName>  |
     Then the user should be able to login
+
+    Examples:
+      | user           | firstName | lastName  |
+      | user10         | Brenden   | Schneider |
+      | storemanager85 | Stephan   | Haley     |
