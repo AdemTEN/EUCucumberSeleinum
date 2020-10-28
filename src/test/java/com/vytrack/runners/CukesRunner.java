@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         plugin = {"json:target/cucumber.json",
                   "html:target/default-html-reports",
                 //how to remember which test cases failed
-                "rerun:target/rerun.txt"},
+                "rerun:target/rerun.txt"},// for keep the information about failed test case. which scenario
         //feature files location path
         features = "src/test/resources/features",
         //step definitions class path
