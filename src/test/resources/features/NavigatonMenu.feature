@@ -1,4 +1,4 @@
-@sales_manager_navigation
+@smoke
 Feature: Sales managers should be able to navigate to pages using the top menu
 
 @Fleet-Vehicle
