@@ -1,8 +1,11 @@
 package com.vytrack.step_definitions;
 
+import com.vytrack.pages.ContactInfoPage;
+import com.vytrack.pages.ContactsPage;
 import com.vytrack.pages.DashboardPage;
 import com.vytrack.pages.LoginPage;
 import com.vytrack.utilities.BrowserUtils;
+import com.vytrack.utilities.DBUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -42,6 +45,73 @@ public class ContactsStepDefs {
         Assert.assertEquals(expectedResult,actualResult);
 
     }
+
+    @When("the user clicks the {string} from contacts")
+    public void the_user_clicks_the_from_contacts(String email) {
+       BrowserUtils.waitFor(2);
+        //we have ready method to find email webwelement in pom class before
+        //we just get the email from feature file and pass to that method and will click that webelement
+        ContactsPage contactsPage = new ContactsPage();
+        contactsPage.getContactEmail(email).click();
+
+
+    }
+
+    @Then("the information should be same with database")
+    public void the_information_should_be_same_with_database() {
+       BrowserUtils.waitFor(2);
+        //get information from UI
+        ContactInfoPage contactInfoPage = new ContactInfoPage();
+        String actualFullName = contactInfoPage.contactFullName.getText();
+        String actualEmail = contactInfoPage.email.getText();
+        String actualPhone = contactInfoPage.phone.getText();
+
+        System.out.println("actualFullName = " + actualFullName);
+        System.out.println("actualEmail = " + actualEmail);
+        System.out.println("actualPhone = " + actualPhone);
+
+
+
+        //get information from database
+        //create connection to db
+        DBUtils.createConnection();
+
+        //we are getting only one row of result
+        //query for retrieving firstname,lastname,email,phone
+        String query = "select concat (c. first_name,' ', c.last_name) as  \"full_name\", e.email, p.phone\n" +
+                "from orocrm_contact c inner join orocrm_contact_email e\n" +
+                "on c.id = e.owner_id\n" +
+                "inner join orocrm_contact_phone p\n" +
+                "on c.id = p.owner_id\n" +
+                "where e.email = 'mbrackstone9@example.com';\n";
+
+        //get info and save in the map
+        Map<String, Object> rowMap = DBUtils.getRowMap(query);
+        String expectedFullName = (String) rowMap.get("full_name");
+        String expectedphone = (String) rowMap.get("phone");
+        String expectedEmail = (String) rowMap.get("email");
+
+        System.out.println("expectedFullName = " + expectedFullName);
+        System.out.println("expectedphone = " + expectedphone);
+        System.out.println("expectedEmail = " + expectedEmail);
+
+
+
+
+        System.out.println(rowMap.toString());
+
+        //close connection
+        DBUtils.destroy();
+        //assertion
+
+        Assert.assertEquals(actualFullName,expectedFullName);
+        Assert.assertEquals(actualPhone,expectedphone);
+        Assert.assertEquals(actualEmail,expectedEmail);
+
+
+
+    }
+
 
 
 

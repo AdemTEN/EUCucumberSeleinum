@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
         glue = "com/vytrack/step_definitions",
         //it doesnt wait the other steps to get method of step_def.
         dryRun = false,
-        tags = "@smoke"
+        tags = "@wip"
 
 
 
