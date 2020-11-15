@@ -74,7 +74,7 @@ public class ContactsStepDefs {
 
         //get information from database
         //create connection to db
-        DBUtils.createConnection();
+
 
         //we are getting only one row of result
         //query for retrieving firstname,lastname,email,phone
@@ -83,7 +83,7 @@ public class ContactsStepDefs {
                 "on c.id = e.owner_id\n" +
                 "inner join orocrm_contact_phone p\n" +
                 "on c.id = p.owner_id\n" +
-                "where e.email = 'mbrackstone9@example.com';\n";
+                "where e.email = 'dragana.ivanovic@gmail.com';\n";
 
         //get info and save in the map
         Map<String, Object> rowMap = DBUtils.getRowMap(query);
@@ -101,9 +101,10 @@ public class ContactsStepDefs {
         System.out.println(rowMap.toString());
 
         //close connection
-        DBUtils.destroy();
+
         //assertion
 
+        //assertion, Compare UI against to DB
         Assert.assertEquals(actualFullName,expectedFullName);
         Assert.assertEquals(actualPhone,expectedphone);
         Assert.assertEquals(actualEmail,expectedEmail);
@@ -111,6 +112,63 @@ public class ContactsStepDefs {
 
 
     }
+    @Then("the information for {string} should be same with database")
+    public void the_information_for_should_be_same_with_database(String email) {
+
+        BrowserUtils.waitFor(2);
+        //get information from UI
+        ContactInfoPage contactInfoPage = new ContactInfoPage();
+        String actualFullName = contactInfoPage.contactFullName.getText();
+        String actualEmail = contactInfoPage.email.getText();
+        String actualPhone = contactInfoPage.phone.getText();
+
+        System.out.println("actualFullName = " + actualFullName);
+        System.out.println("actualEmail = " + actualEmail);
+        System.out.println("actualPhone = " + actualPhone);
+
+
+
+        //get information from database
+        //create connection to db
+
+
+        //we are getting only one row of result
+        //query for retrieving firstname,lastname,email,phone
+        String query = "select concat (c. first_name,' ', c.last_name) as  \"full_name\", e.email, p.phone\n" +
+                "from orocrm_contact c inner join orocrm_contact_email e\n" +
+                "on c.id = e.owner_id\n" +
+                "inner join orocrm_contact_phone p\n" +
+                "on c.id = p.owner_id\n" +
+                "where e.email = '"+email+"';\n";
+
+        //get info and save in the map
+        Map<String, Object> rowMap = DBUtils.getRowMap(query);
+        String expectedFullName = (String) rowMap.get("full_name");
+        String expectedphone = (String) rowMap.get("phone");
+        String expectedEmail = (String) rowMap.get("email");
+
+        System.out.println("expectedFullName = " + expectedFullName);
+        System.out.println("expectedphone = " + expectedphone);
+        System.out.println("expectedEmail = " + expectedEmail);
+
+
+
+
+        System.out.println(rowMap.toString());
+
+        //close connection
+
+        //assertion
+
+        //assertion, Compare UI against to DB
+        Assert.assertEquals(actualFullName,expectedFullName);
+        Assert.assertEquals(actualPhone,expectedphone);
+        Assert.assertEquals(actualEmail,expectedEmail);
+
+
+    }
+
+
 
 
 

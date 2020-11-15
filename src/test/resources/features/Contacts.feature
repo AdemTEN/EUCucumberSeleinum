@@ -18,11 +18,10 @@ Feature: Contacts page
     #   #you will have one step definition and it will handle differnet usertypes
 
 
-    Scenario:login as a user
-      Given the user is on the login page
-      And the user logged in as "driver"
-      Then the title contains "xxxxxx"
-
+  Scenario:login as a user
+    Given the user is on the login page
+    And the user logged in as "driver"
+    Then the title contains "xxxxxx"
 
 
   Scenario: Menu Options
@@ -53,10 +52,30 @@ Feature: Contacts page
       | user10         | Brenden   | Schneider |
       | storemanager85 | Stephan   | Haley     |
 
-@wip
-    Scenario: Contacts test with email
-      Given the user is on the login page
-      And the user logged in as "sales manager"
-      And the user navigates to "Customers" "Contacts"
-      When the user clicks the "mbrackstone9@example.com" from contacts
-      Then the information should be same with database
+
+  Scenario: Contacts test with email
+    Given the user is on the login page
+    And the user logged in as "sales manager"
+    And the user navigates to "Customers" "Contacts"
+    When the user clicks the "mbrackstone9@example.com" from contacts
+    Then the information should be same with database
+
+  @wip @db
+  Scenario: Contacts test with email
+    Given the user is on the login page
+    Given the user logged in as "sales manager"
+    And the user navigates to "Customers" "Contacts"
+    When the user clicks the "mike.jorden@hotmail.com" from contacts
+    Then the information for "mike.jorden@hotmail.com" should be same with database
+
+  Scenario Outline: Contacts test with email
+    Given the user is on the login page
+    Given the user logged in as "sales manager"
+    And the user navigates to "Customers" "Contacts"
+    When the user clicks the "<email>" from contacts
+    Then the information for "<email>" should be same with database
+
+    Examples:
+      | email                    |
+      | mbrackstone9@example.com |
+      | mike.jorden@hotmail.com  |
