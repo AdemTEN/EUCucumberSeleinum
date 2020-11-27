@@ -9,6 +9,7 @@ import com.vytrack.utilities.DBUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 import org.junit.Assert;
 
 import java.util.List;
@@ -49,9 +50,12 @@ public class ContactsStepDefs {
     @When("the user clicks the {string} from contacts")
     public void the_user_clicks_the_from_contacts(String email) {
        BrowserUtils.waitFor(2);
+
         //we have ready method to find email webwelement in pom class before
         //we just get the email from feature file and pass to that method and will click that webelement
         ContactsPage contactsPage = new ContactsPage();
+
+
         contactsPage.getContactEmail(email).click();
 
 

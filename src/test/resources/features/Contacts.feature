@@ -60,15 +60,16 @@ Feature: Contacts page
     When the user clicks the "mbrackstone9@example.com" from contacts
     Then the information should be same with database
 
-  @wip @db
-  Scenario: Contacts test with email
+
+  Scenario: Contacts test with email 1
     Given the user is on the login page
     Given the user logged in as "sales manager"
     And the user navigates to "Customers" "Contacts"
     When the user clicks the "mike.jorden@hotmail.com" from contacts
     Then the information for "mike.jorden@hotmail.com" should be same with database
 
-  Scenario Outline: Contacts test with email
+  @wip @db
+  Scenario Outline: Contacts test with email example
     Given the user is on the login page
     Given the user logged in as "sales manager"
     And the user navigates to "Customers" "Contacts"
@@ -76,6 +77,6 @@ Feature: Contacts page
     Then the information for "<email>" should be same with database
 
     Examples:
-      | email                    |
-      | mbrackstone9@example.com |
-      | mike.jorden@hotmail.com  |
+      | email                      |
+      | mbrackstone9@example.com   |
+      | dragana.ivanovic@gmail.com |
