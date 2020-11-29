@@ -1,3 +1,4 @@
+@smoke
 @sales_manager_navigation
 Feature: Sales managers should be able to navigate to pages using the top menu
 
